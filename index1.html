@@ -1,0 +1,75 @@
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Резюме - Роман Савельев</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+    .nav {
+      margin-bottom: 20px;
+    }
+    .nav button {
+      margin-right: 10px;
+      padding: 10px 20px;
+    }
+    .section {
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
+    .download-btn {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="nav">
+      <button @click="activeSection = 'contacts'">Контакты</button>
+      <button @click="activeSection = 'resume'">Резюме</button>
+      <button class="download-btn" @click="downloadPDF">Скачать как PDF</button>
+    </div>
+
+    <div id="content">
+      <div class="section" v-bind:class="{active: activeSection === 'contacts'}">
+        <h1>Контакты</h1>
+        <p><strong>Email:</strong> me@rs7.dev</p>
+        <p><strong>Телефон:</strong> +1 (650) 555-1234</p>
+        <p><strong>Локация:</strong> Palo Alto, California</p>
+        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/roman-savelev" target="_blank">linkedin.com/in/roman-savelev</a></p>
+      </div>
+
+      <div class="section" v-bind:class="{active: activeSection === 'resume'}">
+        <h1>Резюме</h1>
+        <p><strong>Позиция:</strong> QA Engineer</p>
+        <p><strong>Навыки:</strong> Manual & Automated Testing, API, SQL, Postman, Selenium, CI/CD</p>
+        <p><strong>Опыт:</strong> 3+ года в QA, включая web и mobile тестирование</p>
+        <p><strong>Образование:</strong> Portnov Computer School, инженерное образование</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        activeSection: 'contacts'
+      },
+      methods: {
+        downloadPDF() {
+          const element = document.getElementById('content');
+          html2pdf().from(element).save('Roman_Savelev_Resume.pdf');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
