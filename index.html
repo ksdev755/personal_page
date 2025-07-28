@@ -5,25 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <title>Resume - Contact Information</title>
-  <script type="module" src="https://unpkg.com/vue@3/dist/vue.esm-browser.js"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      padding: 40px;
+      font-family: Helvetica, sans-serif;
+      padding: 10px 15px;
       background-color: #f9f9f9;
       color: #333;
     }
     .contact {
       max-width: 600px;
-      margin: auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin: 20px auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     h2 {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    h1 {
+      margin-bottom: 10px;
+      text-align: center;
     }
     p {
       margin: 10px 0;
@@ -36,56 +40,45 @@
     a:hover {
       text-decoration: underline;
     }
+    .download-btn {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .download-btn:hover {
+      background-color: #005fa3;
+    }
+    .no-print {
+      display: block;
+    }
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+    }
+    i {
+      margin-right: 8px;
+      color: #0077cc;
+    }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-  <div id="app">
-    <resume-info></resume-info>
+  <div class="resume contact">
+    <h1>Roman Savelev</h1>
+    <h2>QA / Software Developer — Open to Work</h2>
+    <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Palo Alto, California</p>
+    <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:me@rs7.dev">me@rs7.dev</a></p>
+    <p><i class="fas fa-phone"></i> <strong>Phone:</strong> 650-485-3439</p>
+    <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/roman-savelev" target="_blank">linkedin.com/in/roman-savelev</a></p>
+    <p><strong>Note:</strong> Open to working with early-stage startups and companies in dynamic environments. Authorized to work in the U.S. without sponsorship.</p>
+    <p><strong>Resume:</strong> <a href="/files/Roman_Savelev_QA_Resume_2025.pdf" download>Download (PDF)</a></p>
   </div>
-
-  <script type="module">
-    import { createApp, defineComponent } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
-
-    const ResumeInfo = defineComponent({
-      template: `
-        <div class="resume">
-          <h1>Roman Savelev</h1>
-          <p><strong>Email:</strong> <a href="mailto:me@rs7.dev">me@rs7.dev</a></p>
-          <p><strong>Phone:</strong> +1 (650) 505-6686</p>
-          <p><strong>Location:</strong> Palo Alto, California</p>
-          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/roman-savelev" target="_blank">linkedin.com/in/roman-savelev</a></p>
-          <h2>Summary</h2>
-          <p>QA Engineer with manual and automation testing experience, skilled in JavaScript, Python, and tools like Selenium, Postman, and Git. Focused on test automation, CI/CD, and quality assurance for web and mobile apps.</p>
-          <h2>Skills</h2>
-          <ul>
-            <li>Manual & Automated Testing</li>
-            <li>JavaScript, Python</li>
-            <li>Selenium, Cypress</li>
-            <li>Postman, REST API testing</li>
-            <li>MySQL, MongoDB</li>
-            <li>JIRA, TestRail</li>
-            <li>Git, GitHub, CI/CD</li>
-          </ul>
-          <h2>Experience</h2>
-          <p><strong>Karate Sushi, Nizhny Novgorod</strong><br />
-          Founder & Operations Director, 2014–2022<br />
-          Built a $5M/year sushi chain with 10+ branches and franchising model. Managed product quality, IT infrastructure, and training programs. Oversaw QA for internal software tools.</p>
-          <p><strong>Window Installer, San Francisco Bay Area</strong><br />
-          Technician, 2023–2024<br />
-          Installed and repaired windows (Milgard, Marvin), glass polishing, and final cosmetic work for residential and commercial buildings.</p>
-          <h2>Education</h2>
-          <p><strong>Engineering Degree in Glass and Ceramics</strong><br />
-          Nizhny Novgorod State Technical University, 2009–2014</p>
-          <h2>Certifications</h2>
-          <p>QA Automation – Portnov Computer School (in progress)</p>
-          <button onclick="window.print()">Download as PDF</button>
-        </div>
-      `
-    });
-
-    createApp({
-      components: { ResumeInfo }
-    }).mount('#app');
-  </script>
 </body>
 </html>
